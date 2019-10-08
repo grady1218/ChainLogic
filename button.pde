@@ -1,7 +1,5 @@
 class Button extends DrawBase{
 
-	int cSize = width / 8;
-
 	int addCountX = 8;
 	int addCountY = 5;
 
@@ -14,6 +12,7 @@ class Button extends DrawBase{
 	boolean isClicked = false;
 
 	Button( char sign, float px, float py ){
+		cSize = width / 8.0;
 		signal = sign;
 		x = px;
 		y = py;
@@ -28,6 +27,8 @@ class Button extends DrawBase{
 
 	@Override
 	void process(){
+
+		ellipseMode(CENTER);
 
 		if( !( dist( x, y, mouseX, mouseY ) < ( cSize / 2.0 ) ) ) return;
 

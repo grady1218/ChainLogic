@@ -1,12 +1,11 @@
 class Puyo extends DrawBase{
-
-	float cSize;
+	
 	int puyoColor;
 	int puyoColorNum;
 
-	Puyo( float px, float py, float size, int colorNum ){
-		x = px;
-		y = py;
+	Puyo( float mx, float my, float size, int colorNum ){
+		x = mx;
+		y = my;
 		cSize = size;
 		puyoColorNum = colorNum;
 		puyoColor = int( random( 0, puyoColorNum ) );
@@ -15,7 +14,8 @@ class Puyo extends DrawBase{
 	@Override
 	void draw(){
 		selectColor();
-		ellipse( x*cSize, y*cSize, cSize, cSize );
+		ellipseMode(CORNER);
+		ellipse( x * cSize, y * cSize, cSize, cSize );
 	}
 
 	void selectColor(){
@@ -24,8 +24,8 @@ class Puyo extends DrawBase{
 			case 1:{ fill( #00FF00 ); break; }
 			case 2:{ fill( #0000FF ); break; }
 			case 3:{ fill( #FF00FF ); break; }
-			case 4:{ fill( #000000, 20 ); break; }
-			case 5:{ fill( #00FFFF ); break; }
+			case 4:{ fill( #00FFFF ); break; }
+			case 5:{ fill( #000000, 20 ); break; }
 			default:break;
 		}
 	}

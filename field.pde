@@ -1,8 +1,8 @@
 class Field extends DrawBase{
 
-	Field( float fx, float fy ){
-		x = fx;
-		y = fy;
+	Field( float xSize, float ySize ){
+		x = xSize;
+		y = ySize;
 	}
 
 	@Override
@@ -12,7 +12,7 @@ class Field extends DrawBase{
 
 		background( 255 );
 		fill( #777777 );
-		rect( x, y, width - ( x * 2 ), height - ( y * 2 ) );
+		rect( 0, 0, x, y );
 	
 		strokeWeight( 1 );
 		stroke( #000000 );
