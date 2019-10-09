@@ -4,8 +4,8 @@ class PuyoPuyo extends DrawBase{
 
 	PuyoPuyo( int status, int mx, int my, float size ){
 
-		puyo[0] = new Puyo( mx, my, size, 4 );
-		puyo[1] = new Puyo( mx + 1, my, size, 4 );
+		puyo[0] = new Puyo( mx, my, size, 4, status );
+		puyo[1] = new Puyo( mx, my + 1, size, 4, status );
 	}
 
 	@Override

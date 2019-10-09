@@ -6,15 +6,32 @@ class FieldMap extends DrawBase{
 	int fieldX = 400;
 	int fieldY = fieldX * 2;
 
-	int fieldArray[][] = new int[8][15];
+	int fieldArray[][] = {
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1, 0, 0, 0, 0, 0, 0,-1},
+		{-1,-1,-1,-1,-1,-1,-1,-1},
+
+	};
 
 	FieldMap( float fx, float fy ){
 		size = fieldX / 6.0;
 		x = fx;
 		y = fy;
 		field = new Field( fieldX, fieldY );
-		puyo[0] = new PuyoPuyo( 0, 0, 0, size );
-		puyo[1] = new PuyoPuyo( 1, 2, 0, size );
+		puyo[0] = new PuyoPuyo( 0, 2, -1, size );
+		puyo[1] = new PuyoPuyo( 1, 4, 0, size );
 		puyo[2] = new PuyoPuyo( 2, 4, 0, size );
 	}
 	@Override
