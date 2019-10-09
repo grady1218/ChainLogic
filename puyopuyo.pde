@@ -2,10 +2,10 @@ class PuyoPuyo extends DrawBase{
 	
 	Puyo[] puyo = new Puyo[2];
 
-	PuyoPuyo( int status, int mx, int my, float cSiz ){
+	PuyoPuyo( int status, int mx, int my, float size ){
 
-		puyo[0] = new Puyo( mx, my, cSiz, 4 );
-		puyo[1] = new Puyo( mx + 1, my, cSiz, 4 );
+		puyo[0] = new Puyo( mx, my, size, 4 );
+		puyo[1] = new Puyo( mx + 1, my, size, 4 );
 	}
 
 	@Override

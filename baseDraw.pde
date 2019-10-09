@@ -2,7 +2,7 @@ class DrawBase{
 
 	float x;
 	float y;
-	float cSize;
+	float size;
 
 	void draw(){
 	}

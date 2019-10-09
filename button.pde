@@ -12,7 +12,7 @@ class Button extends DrawBase{
 	boolean isClicked = false;
 
 	Button( char sign, float px, float py ){
-		cSize = width / 8.0;
+		size = width / 8.0;
 		signal = sign;
 		x = px;
 		y = py;
@@ -22,7 +22,7 @@ class Button extends DrawBase{
 	void draw(){
 		fill( #77FF7F );
 		process();
-		ellipse( x, y, cSize, cSize );
+		ellipse( x, y, size, size );
 	}
 
 	@Override
@@ -30,10 +30,10 @@ class Button extends DrawBase{
 
 		ellipseMode(CENTER);
 
-		if( !( dist( x, y, mouseX, mouseY ) < ( cSize / 2.0 ) ) ) return;
+		if( !( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) ) ) return;
 
 		if( mousePressed ){
-			if( dist( x, y, mouseX, mouseY ) < ( cSize / 2.0 ) && !isClicked ){
+			if( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) && !isClicked ){
 				isClicked = true;
 				fill( #FFFF7F );
 

@@ -10,7 +10,7 @@ class Field extends DrawBase{
 		strokeWeight( 10 );
 		stroke( #7777FF );
 
-		background( 255 );
+		background( #AADDEE );
 		fill( #777777 );
 		rect( 0, 0, x, y );
 	
