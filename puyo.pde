@@ -3,9 +3,9 @@ class Puyo extends DrawBase{
 	int status;
 	int puyoColor;
 	int puyoColorNum;
-	float fallCount = 0;
+	float fallSpeed = 0;
 
-	Puyo( float mx, float my, float size, int colorNum, int status ){
+	Puyo( int mx, int my, float size, int colorNum, int status ){
 		x = mx;
 		y = my;
 		this.size = size;
@@ -22,7 +22,7 @@ class Puyo extends DrawBase{
 		ellipse( x * size, y * size, size, size );
 		*/
 		switch( status ){
-			case 0:rect( x * size, y * size + fallCount, size, size, 20 );break;		
+			case 0:rect( x * size, y * size + fallSpeed, size, size, 20 );break;		
 			case 1:rect( x * size + 200, y * size, size, size, 20 );break;		
 			case 2:rect( x * size + 200, y * size + 200, size, size, 20 );break;
 			default:break;			
@@ -37,9 +37,9 @@ class Puyo extends DrawBase{
 
 	void fall(){
 		if( status != 0 ) return;
-		fallCount += 1;
-		if( fallCount >= size ){
-			fallCount = 0;
+		fallSpeed += 1;
+		if( fallSpeed >= size ){
+			fallSpeed = 0;
 			y++;
 		}
 	}
@@ -48,6 +48,15 @@ class Puyo extends DrawBase{
 		if( status != 0 ) return;
 		x += mx;
 		y += my;
+	}
+
+	void setPotition( int mx, int my ){
+		x = mx;
+		y = my;
+	}
+
+	void decStatus(){
+		status--;
 	}
 
 	float getX(){

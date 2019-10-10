@@ -1,6 +1,6 @@
 class Field extends DrawBase{
 
-	Field( float xSize, float ySize ){
+	Field( int xSize, int ySize ){
 		x = xSize;
 		y = ySize;
 	}
