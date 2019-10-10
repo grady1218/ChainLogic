@@ -36,7 +36,26 @@ class Puyo extends DrawBase{
 	}
 
 	void fall(){
-		fallCount += 10;
+		if( status != 0 ) return;
+		fallCount += 1;
+		if( fallCount >= size ){
+			fallCount = 0;
+			y++;
+		}
+	}
+
+	void rotation( int mx, int my ){
+		if( status != 0 ) return;
+		x += mx;
+		y += my;
+	}
+
+	float getX(){
+		return x;
+	}
+
+	float getY(){
+		return y;
 	}
 
 	void selectColor(){

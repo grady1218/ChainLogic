@@ -1,4 +1,6 @@
 class PuyoPuyo extends DrawBase{
+
+	String direction = "up";
 	
 	Puyo[] puyo = new Puyo[2];
 

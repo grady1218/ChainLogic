@@ -10,6 +10,7 @@ class Button extends DrawBase{
 	char signal;
 
 	boolean isClicked = false;
+	boolean isSendSignal = false;
 
 	Button( char sign, float px, float py ){
 		size = width / 8.0;
@@ -20,29 +21,34 @@ class Button extends DrawBase{
 
 	@Override
 	void draw(){
-		fill( #77FF7F );
 		process();
+		ellipseMode(CENTER);
 		ellipse( x, y, size, size );
 	}
 
 	@Override
 	void process(){
 
-		ellipseMode(CENTER);
+		boolean isTouched = ( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) );
 
-		if( !( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) ) ) return;
+		isSendSignal = false;
+
+		fill( #77FF7F );
+
+		if( !isTouched ) return;
 
 		if( mousePressed ){
-			if( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) && !isClicked ){
+			
+			if( !isClicked ){
 				isClicked = true;
 				fill( #FFFF7F );
 
 				if( deCount == 0 ){
 					deCount = firstCount;
+					isSendSignal = true;
 				}else{
 					deCount = 4;
 				}
-				println( signal );
 			}
 
 			fCount++;
@@ -51,10 +57,19 @@ class Button extends DrawBase{
 				fCount = 0;
 				deCount--;
 			}
-		}else{
+		}
+		else{
 			isClicked = false;
 			fCount = 0;
 			deCount = 0;
+		}
+	}
+	char getSignal(){
+
+		if( isSendSignal ){
+			return signal;
+		}else{
+			return 'N';
 		}
 	}
 }
