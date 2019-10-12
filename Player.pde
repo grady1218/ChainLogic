@@ -3,6 +3,8 @@ class Player{
 	Button button[] = new Button[4];
 	DrawBase fieldMap;
 
+	int hoge = 0;
+
 	int fieldArray[][] = {
 		{ 0, 0, 0, 0, 0, 0 },
 		{ 0, 0, 0, 0, 0, 0 },
