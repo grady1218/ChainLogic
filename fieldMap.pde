@@ -1,7 +1,8 @@
 class FieldMap extends DrawBase{
 	
+	PuyoPuyo[] puyo = new PuyoPuyo[3];
+
 	Field field;
-	PuyoPuyo puyo[] = new PuyoPuyo[3];
 	
 	int fieldX = 400;
 	int fieldY = fieldX * 2;
@@ -19,9 +20,16 @@ class FieldMap extends DrawBase{
 	void draw(){
 		translate( x, y );
 		field.draw();
-		for( int c = 0; c < puyo.length; c++ ){
-			puyo[c].draw();
+		for( PuyoPuyo p: puyo ){
+			p.draw();
 		}
 		translate( -x, -y );
 	}
+
+	void movePuyo( int x, int y ){
+		for( PuyoPuyo p: puyo ){
+			p.move( x, y );
+		}
+	}
+
 }

@@ -22,4 +22,10 @@ class PuyoPuyo extends DrawBase{
 
 	}
 
+	void move( int x, int y ){
+		for( Puyo p : puyo ){
+			p.movePuyo( x, y );
+		}
+	}
+
 }

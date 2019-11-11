@@ -44,7 +44,7 @@ class Puyo extends DrawBase{
 		}
 	}
 
-	void rotation( int mx, int my ){
+	void movePuyo( int mx, int my ){
 		if( status != 0 ) return;
 		x += mx;
 		y += my;
