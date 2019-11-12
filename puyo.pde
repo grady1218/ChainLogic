@@ -59,11 +59,11 @@ class Puyo extends DrawBase{
 		status--;
 	}
 
-	float getX(){
+	int getX(){
 		return x;
 	}
 
-	float getY(){
+	int getY(){
 		return y;
 	}
 

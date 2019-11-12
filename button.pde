@@ -24,22 +24,18 @@ class Button extends DrawBase{
 
 	@Override
 	void draw(){
-		process();
+		fill( #90FF90 );
+		if( ( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) ) && mousePressed ) fill( #55AA5A );
 		ellipseMode( CENTER );
 		ellipse( x, y, size, size );
 	}
 
 	@Override
 	void process(){
-
-
-		fill( #90FF90 );
 		
 		boolean isTouched = ( dist( x, y, mouseX, mouseY ) < ( size / 2.0 ) );
 
 		if( !isTouched || !mousePressed ){ init(); return; }
-		else if( isTouched && mousePressed ) fill( #55AA5A );
-
 
 		frame++;
 

@@ -13,5 +13,6 @@ void setup(){
 
 
 void draw(){
+	player.process();
 	player.draw();
 }

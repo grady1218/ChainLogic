@@ -5,7 +5,7 @@ class Player{
 	FieldMap fieldMap;
 	
 	Player(){
-		fieldMap = new FieldMap( 100, 100 );
+		fieldMap = new FieldMap( 100, 100, puyoData );
 		button[0] = new Button( kc.getKey( "left" ), 50, 700 );
 		button[1] = new Button( kc.getKey( "down" ), 50, 820 );
 		button[2] = new Button( kc.getKey( "right" ), 650, 700 );
@@ -14,15 +14,18 @@ class Player{
 
 	void draw(){
 		fieldMap.draw();
-		process();
+		for( Button b : button ){
+			b.draw();
+		}
 	}
 
 	void process(){
 		for( Button b : button ){
-			b.draw();
+			b.process();
 			if( !b.isSendSignal ) continue;
 			checkSignal( b.getSignal() );
 		}
+		fieldMap.process();
 	}
 
 	void checkSignal( char s ){
