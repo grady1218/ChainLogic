@@ -29,16 +29,26 @@ class Player{
 	}
 
 	void checkSignal( char s ){
+		
 		int x = 0;
 		int y = 0;
-		if( s == kc.getKey( "left" ) ){
-			x--;
+		int puyoX = fieldMap.puyo[0].x;
+		int puyoY = fieldMap.puyo[0].y;
+		
+		if( s == kc.getKey( "left" ) && !( puyoX == 0 ) ){
+			if( puyoData[puyoX-1][puyoY] == null )x--;
 		}
-		if( s == kc.getKey( "right" ) ){
-			x++;
+		if( s == kc.getKey( "right" ) && !( puyoX == 5 ) ){
+			if( puyoData[puyoX+1][puyoY] == null )x++;
 		}
-		if( s == kc.getKey( "down" ) ){
-			y++;
+		if( s == kc.getKey( "down" ) && !( puyoY == 13 ) ){
+			if( puyoData[puyoX][puyoY+1] == null ){
+				for( int c = 0; c < 20; c++ ){
+					fieldMap.puyo[0].process();
+				}
+			}else{
+				fieldMap.puyo[0].groundingTime += 20;
+			}
 		}
 		fieldMap.movePuyo( x, y );
 	}

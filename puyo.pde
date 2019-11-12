@@ -16,15 +16,12 @@ class Puyo extends DrawBase{
 
 	@Override
 	void draw(){
-		process();
-		/*
-		ellipseMode(CORNER);
-		ellipse( x * size, y * size, size, size );
-		*/
+		selectColor();
 		switch( status ){
-			case 0:rect( x * size, y * size + fallSpeed, size, size, 20 );break;		
+			case 0:rect( x * size, ( y - 2 ) * size + fallSpeed, size, size, 20 );break;		
 			case 1:rect( x * size + 200, y * size, size, size, 20 );break;		
 			case 2:rect( x * size + 200, y * size + 200, size, size, 20 );break;
+			case -1:rect( x * size, ( y - 2 ) * size, size, size, 20 );break;
 			default:break;			
 		}
 	}
@@ -32,7 +29,6 @@ class Puyo extends DrawBase{
 	@Override
 	void process(){
 		fall();
-		selectColor();
 	}
 
 	void fall(){
